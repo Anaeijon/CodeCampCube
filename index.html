@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Cube IDE</title>
+<link rel="stylesheet" type="text/css" href="css/style.css">
+<style type="text/css">
+
+</style>
+<script type="text/javascript">
+<!--
+        function addFrame(){
+                a = new Array();
+                a[1]=document.myform.a1.checked;
+                a[2]=document.myform.a2.checked;
+                a[3]=document.myform.a3.checked;
+                a[4]=document.myform.a4.checked;
+                a[5]=document.myform.a5.checked;
+                a[6]=document.myform.a6.checked;
+                a[7]=document.myform.a7.checked;
+                a[8]=document.myform.a8.checked;
+                a[9]=document.myform.a9.checked;
+                a[10]=document.myform.b1.checked;
+                a[11]=document.myform.b2.checked;
+                a[12]=document.myform.b3.checked;
+                a[13]=document.myform.b4.checked;
+                a[14]=document.myform.b5.checked;
+                a[15]=document.myform.b6.checked;
+                a[16]=document.myform.b7.checked;
+                a[17]=document.myform.b8.checked;
+                a[18]=document.myform.b9.checked;
+                a[19]=document.myform.c1.checked;
+                a[20]=document.myform.c2.checked;
+                a[21]=document.myform.c3.checked;
+                a[22]=document.myform.c4.checked;
+                a[23]=document.myform.c5.checked;
+                a[24]=document.myform.c6.checked;
+                a[25]=document.myform.c7.checked;
+                a[26]=document.myform.c8.checked;
+                a[27]=document.myform.c9.checked;
+                var frame = "";
+                a.forEach(
+                        function(bit){
+                                frame += bit?'1':'0';
+                        }
+                );
+                frame += '\n';
+                document.myform.frames.value += frame;
+        }
+
+        function sendFrames(){
+                var frames = document.myform.frames.value.split('\n');
+                var url = './newAnimation.php?com=/dev/ttyACM0&rate='+document.myform.rate.value+'&speed='+document.myform.speed.value;
+      frames.forEach(
+              function(f){
+                       url+='&frames[]='+f;
+              }
+                );
+                fenster = window.open(url, "Rückgabe des Arduino", "width=400,height=300,resizable=yes");
+                 fenster.focus();
+        }
+        
+        function loadFile(url){
+					var xmlhttp;
+					xmlhttp = new XMLHttpRequest();
+					xmlhttp.open('GET', url, false);
+					xmlhttp.send();
+					document.myform.frames=xmlhttp.responseText;
+			}
+			
+						
+			
+		   document.myform.load.onchange = function() {
+		      loadFile(this.value);
+		   }
+// -->
+</script>
+</head>
+<body>
+<div id="wrapper">
+	<form name="myform">
+		<div id="textarea">
+			<textarea 	placeholder="your animationcode would put in here" 
+						name="frames" 
+						rows="20" 
+						cols="28"></textarea>
+		</div> <!-- close div textarea -->
+		<div id="table">
+			<table>
+					<tr><th colspan="3">Oben</th></tr>
+					<tr>
+							<td><input type="checkbox" name="c1"></td>
+							<td><input type="checkbox" name="c2"></td>
+							<td><input type="checkbox" name="c3"></td>
+					</tr>
+					<tr>
+							<td><input type="checkbox" name="c4"></td>
+							<td><input type="checkbox" name="c5"></td>
+							<td><input type="checkbox" name="c6"></td>
+					</tr>
+					<tr>
+							<td><input type="checkbox" name="c7"></td>
+							<td><input type="checkbox" name="c8"></td>
+							<td><input type="checkbox" name="c9"></td>
+					</tr>
+			</table>
+			<table>
+					<tr><th colspan="3">Mitte</th></tr>
+					<tr>
+							<td><input type="checkbox" name="b1"></td>
+							<td><input type="checkbox" name="b2"></td>
+							<td><input type="checkbox" name="b3"></td>
+					</tr>
+					<tr>
+							<td><input type="checkbox" name="b4"></td>
+							<td><input type="checkbox" name="b5"></td>
+							<td><input type="checkbox" name="b6"></td>
+					</tr>
+					<tr>
+							<td><input type="checkbox" name="b7"></td>
+							<td><input type="checkbox" name="b8"></td>
+							<td><input type="checkbox" name="b9"></td>
+					</tr>
+			</table>
+			<table>
+					<tr><th colspan="3">Unten</th></tr>
+					<tr>
+							<td><input type="checkbox" name="a1"></td>
+							<td><input type="checkbox" name="a2"></td>
+							<td><input type="checkbox" name="a3"></td>
+					</tr>
+					<tr>
+							<td><input type="checkbox" name="a4"></td>
+							<td><input type="checkbox" name="a5"></td>
+							<td><input type="checkbox" name="a6"></td>
+					</tr>
+					<tr>
+							<td><input type="checkbox" name="a7"></td>
+							<td><input type="checkbox" name="a8"></td>
+							<td><input type="checkbox" name="a9"></td>
+					</tr>
+			</table>
+		</div> <!-- close div table -->
+		<div id="eingaben">
+			<button name="addframe" 
+					value="AddFrame" 
+					type="button" 
+					onclick="addFrame()">Add Frame</button>
+				
+			<label 	for="rate">Refreshrate</label>
+			<input 	type="number" 
+					name="rate" value="5">
+			<label 	for="speed">Framedauer</label>
+			<input 	type="number" 
+					name="speed" value="30">
+			
+			<button type="button" 
+					name="senden" 
+					value="Senden" 
+					onclick="sendFrames()">Senden
+			</button>
+			<br>
+			<!--<label 	for="load">Examples</label>
+			<select name="load">
+					<option label="Wall" value="./LED Cube Demos/Wall.cube"></option>	
+					<option label="Wall2" value="./LED Cube Demos/Wall2.cube"></option>		
+					<option label="runter" value="./LED Cube Demos/runter.cube"></option>
+					<option label="runter2" value="./LED Cube Demos/runter2.cube"></option>
+					<option label="Welle" value="./LED Cube Demos/welle.cube"></option>
+					
+			</select>
+		-->
+		</div> <!-- close div eingaben -->
+	</form>
+</div> <!-- close div wrapper -->
+</body>
+</html>

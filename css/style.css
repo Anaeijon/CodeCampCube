@@ -1,0 +1,67 @@
+@charset "utf-8";
+/* CSS Document */
+
+/* =TAGS
+---------------------------------------------------------------------------------*/
+*{padding: 0; margin: 0; border: 0;}
+
+html {font-size: 85%; height: 100%;}
+
+html body {
+	font-size: 12px;
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+}
+
+body {
+    background-image: none; height: 100%;
+	background-color:#ffffff;
+	text-align:center;
+}
+
+table{padding:0 0 0 0; margin:0 0 0 0;}
+
+a:link, a:visited , a:active{color:#962a06;}
+a:hover, a:focus{color:#666666;}
+
+/* =DIVBOXEN
+---------------------------------------------------------------------------------*/
+
+#wrapper{
+	height: 100%;
+	width: 100%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#textarea{
+	float: left;
+	height: auto;
+	border: 1px solid;
+	margin: 10px;
+}
+
+#table{
+	border: 1px solid;
+	margin:10px 0px 0px 1px;
+	padding-left: 1px;
+	float: left;
+}
+
+#eingaben{
+	border: 1px solid;
+	margin: 10px;
+	float: left;
+	width: 130px;
+}
+
+#eingaben label{
+	
+}
+
+#eingaben input{
+	width: 40px;
+}
+
+#eingaben button{
+	width: 80px;
+}
